@@ -1,12 +1,16 @@
 // src/components/About.jsx
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Bform from '../assets/Components/BForm';
 
-const About = () => {
+
+function About() {
     return (
-        <div>
-            <h2>About</h2>
-            <p>This is the about page.</p>
-        </div>
+        <Container className="hero" >
+            <h2>Have a table!</h2>
+            <p>Enter your reservation info</p>
+            <Bform />
+        </Container>
     );
 };
 

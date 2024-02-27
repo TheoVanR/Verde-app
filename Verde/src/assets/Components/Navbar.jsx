@@ -1,9 +1,5 @@
 // src/components/AppRouter.jsx
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Menu from './pages/menu';
-
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -17,7 +13,13 @@ const NavBar = () => {
                     <Link to="/menu">Menu</Link>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/Booking">Reservations</Link>
+                </li>
+                <li>
+                    <Link to="/Api">Api</Link>
+                </li>
+                <li>
+                    <Link to="/about">Make a reservation</Link>
                 </li>
             </ul>
         </nav>
