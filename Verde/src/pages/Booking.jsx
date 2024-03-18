@@ -39,7 +39,7 @@ function Booking() {
 
     };
 
-    const handleSubmitEdit = (e, id) => {
+    const handleEdit = (e, id) => {
         e.preventDefault();
         editBokning(id);
     };
@@ -125,7 +125,7 @@ function Booking() {
                         <Button variant="dark" onClick={() => deleteBokning(bokning.id)}>Delete</Button>
 
 
-                        <form onSubmit={(e) => handleSubmitEdit(e, bokning.id)}>
+                        <form onSubmit={(e) => handleEdit(e, bokning.id)}>
                             <input
                                 type="text"
                                 className="formimp"

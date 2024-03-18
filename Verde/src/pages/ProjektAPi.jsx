@@ -24,23 +24,25 @@ function ProjektAPi() {
 
     return (
         <div>
-            <h1 className="header">Event Information</h1>
+            <h1> Event Information</h1>
             <button onClick={getEventData}>Get Event Data</button>
             {error && <p className="error">{error}</p>}
-            {events && (
-                <div className="info">
-                    {events.map(event => (
-                        <div key={event.eventID}>
-                            <p>Name: {event.name}</p>
-                            <p>Description: {event.description}</p>
-                            <p>Start Date Time: {event.startDateTime}</p>
-                            <p>End Date Time: {event.endDateTime}</p>
-                            <p>Price: {event.price}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+            {
+                events && (
+                    <div className="info">
+                        {events.map(event => (
+                            <div key={event.eventID}>
+                                <p>Name: {event.name}</p>
+                                <p>Description: {event.description}</p>
+                                <p>Start Date Time: {event.startDateTime}</p>
+                                <p>End Date Time: {event.endDateTime}</p>
+                                <p>Price: {event.price}</p>
+                            </div>
+                        ))}
+                    </div>
+                )
+            }
+        </div >
     );
 }
 

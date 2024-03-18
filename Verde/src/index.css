@@ -110,6 +110,13 @@ a:hover {
 h1 {
   font-size: 6rem;
   line-height: 1.1;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #ffffff;
 }
 
 p {
