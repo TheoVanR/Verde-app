@@ -19,6 +19,9 @@ const NavBar = () => {
                     <Link to="/Api">Api</Link>
                 </li>
                 <li>
+                    <Link to="/ProjektApi">ProjektApi</Link>
+                </li>
+                <li>
                     <Link to="/about">Make a reservation</Link>
                 </li>
             </ul>

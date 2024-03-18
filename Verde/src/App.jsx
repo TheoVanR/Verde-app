@@ -5,6 +5,7 @@ import './App.css'
 import Home from './pages/Home';
 import ApiContent from './pages/ApiContent';
 
+import ProjektApi from './pages/ProjektAPi';
 import Menu from './pages/menu';
 import About from './pages/About';
 import Footer from './assets/Components/Footer';
@@ -21,6 +22,7 @@ function App() {
         <Route path="Menu" element={<Menu />} />
         <Route path="Booking" element={<Booking />} />
         <Route path="Api" element={<ApiContent />} />
+        <Route path="ProjektApi" element={<ProjektApi />} />
         <Route path="About" element={<About />} />
       </Routes>
       <Footer />

@@ -7,6 +7,7 @@
   --accent: #F24C3D;
 
 
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #91D9C4;
@@ -22,6 +23,7 @@
 body {
   min-height: 100vh;
   background-color: var(--primary);
+  margin-bottom: 10rem;
 }
 
 .formimp {
@@ -41,6 +43,16 @@ body {
   padding: 0.4rem;
   border-radius: 4px;
   margin: 0.2rem;
+}
+
+.post-card {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+
+
+
+
 }
 
 ul {
