@@ -136,10 +136,11 @@ p {
 }
 
 .form-group {
-
+  margin: auto;
   padding: 0.5rem;
   border-radius: 1rem;
   color: var(--secondary);
+  width: 14rem;
 
 }
 

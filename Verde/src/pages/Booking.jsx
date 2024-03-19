@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 
 function Booking() {
+
+    const API_BASE_URL = 'https://informatik7.ei.hv.se/Bordsbokning/api/Boknings';
+
     const [kundNamn, setKundnamn] = useState('');
     const [bokningsDatum, setBokningsDatum] = useState('');
     const [antalPersoner, setAntalPersoner] = useState('');
     const [bokningar, setBokningar] = useState([]);
 
+    const [id, setId] = useState('');
     const [nykundNamn, setNyKundnamn] = useState('');
     const [nybokningsDatum, setNyBokningsDatum] = useState('');
     const [nyantalPersoner, setNyAntalPersoner] = useState('');
-    const [updateradBokning, setUpdateradBokning] = useState('');
 
 
     // GET request
@@ -30,37 +33,38 @@ function Booking() {
     }, []);
 
     const deleteBokning = async (id) => {
-        let response = await fetch(
-            `https://informatik7.ei.hv.se/Bordsbokning/api/Boknings/${id}`,
-            {
-                method: 'DELETE',
-            }
-        );
-
+        const url = `${API_BASE_URL}/${id}`
+        const response = await fetch(url, {
+            method: 'DELETE',
+        });
+        window.location.reload();
     };
 
     const handleEdit = (e, id) => {
+
         e.preventDefault();
         editBokning(id);
     };
 
     //PUT request
     const editBokning = async (id) => {
+
         try {
-            const response = await fetch(`https://informatik7.ei.hv.se/Bordsbokning/api/Boknings/${id}`, {
+            const url = `${API_BASE_URL}/${id}`; // Construct the complete URL
+            const response = await fetch(url, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-
+                    id: id,
                     kundNamn: nykundNamn,
                     bokningsDatum: nybokningsDatum,
-                    antalPersoner: nyantalPersoner
+                    antalPersoner: parseInt(nyantalPersoner)
                 })
             });
-
-
+            // Handle response as needed
+            window.location.reload();
         }
         catch (error) {
             console.error('Error fetching bookings:', error);
@@ -82,7 +86,7 @@ function Booking() {
             body: JSON.stringify({
                 kundNamn: kundNamn,
                 bokningsDatum: bokningsDatum,
-                antalPersoner: antalPersoner
+                antalPersoner: parseInt(antalPersoner)
             })
         });
         const data = await response.json();
@@ -106,6 +110,7 @@ function Booking() {
                 <input type="text" className="formimp" value={antalPersoner} onChange={(e) => setAntalPersoner(e.target.value)} placeholder="AntalPersoner" />
                 <Button variant="dark" type='submit'>Add Booking</Button>
             </form>
+
             <div className="posts-container">
                 <h2>Bookings</h2>
                 {bokningar.map(bokning => (
@@ -126,11 +131,12 @@ function Booking() {
 
 
                         <form onSubmit={(e) => handleEdit(e, bokning.id)}>
+
                             <input
                                 type="text"
                                 className="formimp"
                                 value={nykundNamn}
-                                placeholder={bokning.kundNamn}
+                                placeholder="Nytt Kundnamn"
                                 onChange={(e) => setNyKundnamn(e.target.value)}
                             />
                             <input

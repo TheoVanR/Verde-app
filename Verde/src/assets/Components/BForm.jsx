@@ -1,6 +1,8 @@
 import { Form } from "react-bootstrap";
 import React, { useState, } from 'react';
-import Flatpickr from "flatpickr";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 // Annan variant av bokningsformulär denna ger Bad Request error??
 
 function Bform() {
@@ -9,6 +11,7 @@ function Bform() {
     const [bokningsDatum, setBokningsDatum] = useState('');
     const [antalPersoner, setAntalPersoner] = useState('');
     const [bokningar, setBokningar] = useState([]);
+
 
 
     // Post with fetchAPI
@@ -43,11 +46,10 @@ function Bform() {
             <Form onSubmit={handleSubmit}>
                 <div className="form-group">
 
-                    <div className="form-control">
-                        <label htmlFor="Arrival">Date</label>
-                        <Flatpickr type="text" value={ankomstDatum} onChange={(e) => setAnkomstDatum(e.target.value)} placeholder="YYYY-MM-DD">
-                        </Flatpickr>
-                    </div>
+                    <p>YYYY-MM-DD</p>
+                    <DatePicker selected={ankomstDatum} className="form-control" value={ankomstDatum} onChange={(e) => setAnkomstDatum(e.target.value)} >
+                    </DatePicker>
+
 
 
                 </div>
